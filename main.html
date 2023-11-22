@@ -10,7 +10,27 @@
 	<script>
 		function secondHighest(arr) {
 			//Write your code here
-			
+			 if (arr.length <= 1) {
+        return -Infinity;
+      }
+
+      // Check if all elements in the array are the same
+      const areAllElementsSame = arr.every((element, index, array) => element === array[0]);
+
+      if (areAllElementsSame) {
+        return -Infinity;
+      }
+
+      // Find the maximum value in the array
+      const max = Math.max(...arr);
+
+      // Remove the maximum value from the array
+      const arrWithoutMax = arr.filter(element => element !== max);
+
+      // Find the second maximum value in the modified array
+      const secondMax = Math.max(...arrWithoutMax);
+
+      return secondMax;
 		}
 
 		function Main() {
@@ -25,6 +45,7 @@
 	</script>
 
     <script type="text/javascript" src="./script.js">
+		
 </script>
 
 </body>
